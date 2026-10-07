@@ -15,17 +15,32 @@ const vegetablesAndFruits = getProductsByCategory(
     "Овочі та фрукти"
 );
 
-// const milkProducts = getProductsByCategory(
-//     products,
-//     "Молочні продукти"
-// );
+const milkProducts = getProductsByCategory(
+    products,
+    "Молочні продукти"
+);
 
 const totalQuantity = vegetablesAndFruits.reduce(
     (sum, product) => sum + product.quantity,
     0
 );
 
+const totalPrice = milkProducts.reduce(
+    (sum,product) => sum + (product.quantity * product.price),0 
+);
+
 console.table(vegetablesAndFruits);
 console.log("Загальна кількість:", totalQuantity);
-// console.table(milkProducts);
+console.table(milkProducts);
+console.log ("Загальна вартість:", totalPrice);
 
+
+
+function sortProductsByQuantity(array) {
+    return [...array].sort(
+        (first, second) => second.quantity - first.quantity
+    );
+}
+
+const sortedArray = sortProductsByQuantity(products);
+console.table(sortedArray);
