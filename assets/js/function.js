@@ -20,6 +20,11 @@ const milkProducts = getProductsByCategory(
     "Молочні продукти"
 );
 
+const meatProducts = getProductsByCategory(
+    products,
+    "М'ясо та м'ясні вироби"
+);
+
 const totalQuantity = vegetablesAndFruits.reduce(
     (sum, product) => sum + product.quantity,
     0
@@ -62,3 +67,9 @@ function findCheapestAndMostExpensiveProducts(array) {
 const cheapestAndExpensive = findCheapestAndMostExpensiveProducts(products);
 console.table(cheapestAndExpensive);
 
+const averagePrice = meatProducts.reduce(
+    (sum, product) => sum + product.price,
+    0
+) / meatProducts.length;
+
+console.log("Середня ціна:", averagePrice);
