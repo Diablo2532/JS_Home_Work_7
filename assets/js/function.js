@@ -44,3 +44,21 @@ function sortProductsByQuantity(array) {
 
 const sortedArray = sortProductsByQuantity(products);
 console.table(sortedArray);
+
+function findCheapestAndMostExpensiveProducts(array) {
+    const cheapestProduct = array.reduce((cheapest, product) => {
+        return product.price < cheapest.price ? product : cheapest;
+    });
+
+    const mostExpensiveProduct = array.reduce((mostExpensive, product) => {
+        return product.price > mostExpensive.price ? product : mostExpensive;
+    });
+
+    return {
+        cheapestProduct,
+        mostExpensiveProduct
+    };
+}
+const cheapestAndExpensive = findCheapestAndMostExpensiveProducts(products);
+console.table(cheapestAndExpensive);
+
